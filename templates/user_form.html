@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h3>Enter Details</h3>
+
+<div class="container">
+  <form action="http://127.0.0.1:5001/addDetails" method="post">
+    <label for="fname">Day</label>
+    <input type="text" id="Day" name="Day" placeholder="Sunday">
+    <label for="fname">Time Duration</label>
+    <input type="text" id="duration" name="Duration" placeholder="1 Hour">
+    <label for="fname">Temperatue(Celcius)</label>
+    <input type="text" id="temperature" name="Temperature" placeholder=22>
+    <label for="fname">Distance(Km)</label>
+    <input type="text" id="distance" name="Distance_Km" placeholder=10>
+    <br>
+    <label for="fname">Energy Level</label>
+    <select name="Energy_Level">
+        {% for each in energy_level %}
+
+        <option value="{{each}}">{{each}}</option>
+
+        {% endfor %}
+    </select>
+
+    <select name="time_day">
+        {% for each in time_day %}
+
+        <option value="{{each}}">{{each}}</option>
+
+        {% endfor %}
+    </select>
+
+
+    <label for="fname">Weather Conditons</label>
+    <select name="weather_type">
+        {% for each in weather_type %}
+
+        <option value="{{each}}">{{each}}</option>
+
+        {% endfor %}
+    </select>
+    <label for="fname">Time of Day</label>
+
+    <input type="reset" value="Reset">
+    <input type="submit" value="Send Mail">
+
+  </form>
+</div>
+
+</body>
+</html>
